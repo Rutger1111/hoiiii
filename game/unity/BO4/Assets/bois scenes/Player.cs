@@ -10,7 +10,8 @@ public class Player : MonoBehaviour
     public bool kanLopen = true;
     public GameObject opvolger;
     public List<GameObject> gameitems;
-    public int[] gameitemsarray = new int[] {};
+    private bool pickup;
+    public GameObject hand;
     public float deurBound1x;
     public float deurBound1y;
     public float deurBound1z;
@@ -52,10 +53,18 @@ public class Player : MonoBehaviour
             {
                 transform.position += new Vector3(speed, 0) * Time.deltaTime;
             }
-            if (Input.GetKey(KeyCode.Space))
+            if (Input.GetKey(KeyCode.Space) && transform.position.x < 3 && transform.position.y < 3 && pickup == false)
             {
-            
+                gameitems[0].transform.parent = hand.transform;
+                gameitems[0].transform.position = hand.transform.position;
+                pickup = true;
             }
+            if(Input.GetKeyDown(KeyCode.Mouse0) && pickup == true)
+            {
+                gameitems[0].transform.parent = null;
+                gameitems[0].transform.position -= new Vector3(0, 1.3f);
+                pickup = false;
+            }       
         }
     }
 }
