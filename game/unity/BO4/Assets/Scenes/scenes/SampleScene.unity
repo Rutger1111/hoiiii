@@ -1565,6 +1565,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 875404644456695061, guid: 961f0a05315ce0a4081fc905979ada1a, type: 3}
+      propertyPath: spritesAnimatieLoopD.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 875404644456695061, guid: 961f0a05315ce0a4081fc905979ada1a, type: 3}
+      propertyPath: spritesAnimatieLoopL.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 875404644456695061, guid: 961f0a05315ce0a4081fc905979ada1a, type: 3}
+      propertyPath: spritesAnimatieLoopR.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 875404644456695061, guid: 961f0a05315ce0a4081fc905979ada1a, type: 3}
+      propertyPath: spritesAnimatieLoopU.Array.size
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2846818781147743604, guid: 961f0a05315ce0a4081fc905979ada1a, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.42529997

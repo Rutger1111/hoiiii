@@ -7,11 +7,13 @@ public class animatatie : MonoBehaviour
     [SerializeField] private List<Sprite> spritesAnimatieLoopR;
     [SerializeField] private List<Sprite> spritesAnimatieLoopL;
     [SerializeField] private List<Sprite> spritesAnimatieLoopU;
-    [SerializeField] private List<Sprite> spritesAnimatieLoopD;
+    public List<Sprite> spritesAnimatieLoopD;
     [SerializeField] private Sprite sprite1;
     [SerializeField] private Sprite sprite2;
     [SerializeField] private Sprite sprite3;
     [SerializeField] private SpriteRenderer spritie;
+    [SerializeField] private float interval;
+    [SerializeField] private int welke;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +25,8 @@ public class animatatie : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.A))
         {
-            spritie.sprite = sprite1;
+            //spritie.sprite = sprite1;
+            spritie.sprite = spritesAnimatieLoopL[welke];
         }
 
         if (Input.GetKey(KeyCode.D))
