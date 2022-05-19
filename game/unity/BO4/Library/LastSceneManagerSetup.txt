@@ -1,9 +1,5 @@
 sceneSetups:
-<<<<<<< HEAD
 - path: Assets/Nikki/Scenes/StartScreen.unity
-=======
-- path: Assets/bois scenes/New Scene.unity
->>>>>>> cd0bab1a47c02b6c5f34efb76e9bcd33735a0661
   isLoaded: 1
   isActive: 1
   isSubScene: 0
