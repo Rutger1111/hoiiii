@@ -23,8 +23,8 @@ public class kijknaar : MonoBehaviour
         
         float x = bekijkt.transform.position.x - transform.position.x;
         float y = bekijkt.transform.position.y - transform.position.y;
-        float ab = kijkobject.transform.position.x - x;
-        float bc = kijkobject.transform.position.y - y;
+        float ab = transform.position.x - x;
+        float bc = transform.position.y - y;
         float a = bc / ab;
        
         print("hoi" + a);
@@ -35,7 +35,8 @@ public class kijknaar : MonoBehaviour
         
         print("hoi 1 4"+ a * Mathf.PI);
         float aaaa = angle;
-        textie.text = ("" + aaaa); 
+        textie.text = ("" + aaaa);
+        /*
         if (aaaa >= -60 && aaaa <= 0)
         {
 
@@ -56,9 +57,10 @@ public class kijknaar : MonoBehaviour
         {
             gameObject.transform.eulerAngles = new Vector3(0, 0, -90);
         }
-
+        */
+        gameObject.transform.eulerAngles = new Vector3(0, 0, angle + 90);
         //transform.LookAt(bekijkt.transform);
-        
+
 
         /*
         kijkobject.transform.LookAt(bekijkt.transform);

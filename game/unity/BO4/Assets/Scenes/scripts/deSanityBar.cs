@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class deSanityBar : MonoBehaviour
 {
     public Slider slidei;
+    public int health = 100;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,6 +15,6 @@ public class deSanityBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        slidei.value += 1 * Time.deltaTime / 100;
+        slidei.value = health;
     }
 }
