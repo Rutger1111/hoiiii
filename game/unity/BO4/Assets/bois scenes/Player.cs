@@ -28,6 +28,27 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        foreach(GameObject i in gameitems)
+        {
+            Vector3 distVector = i.transform.position - transform.position;
+            float distance = distVector.magnitude;
+
+            if(distance < 0.3f)
+            {
+                if (Input.GetKey(KeyCode.Space) && pickup == false)
+                {
+                    i.transform.parent = hand.transform;
+                    i.transform.position = hand.transform.position;
+                    pickup = true;
+                }
+                if (Input.GetKeyDown(KeyCode.Q) && pickup == true)
+                {
+                    i.transform.parent = null;
+                    i.transform.position -= new Vector3(0, 1.3f);
+                    pickup = false;
+                }
+            }
+        }
 
         if (kanLopen == true)
         {
@@ -52,19 +73,7 @@ public class Player : MonoBehaviour
             if (Input.GetKey(KeyCode.D) && transform.position.x < 5)
             {
                 transform.position += new Vector3(speed, 0) * Time.deltaTime;
-            }
-            if (Input.GetKey(KeyCode.Space) && transform.position.x < 3 && transform.position.y < 3 && pickup == false)
-            {
-                gameitems[0].transform.parent = hand.transform;
-                gameitems[0].transform.position = hand.transform.position;
-                pickup = true;
-            }
-            if(Input.GetKeyDown(KeyCode.Mouse0) && pickup == true)
-            {
-                gameitems[0].transform.parent = null;
-                gameitems[0].transform.position -= new Vector3(0, 1.3f);
-                pickup = false;
-            }       
+            }      
         }
     }
 }

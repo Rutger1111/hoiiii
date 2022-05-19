@@ -401,7 +401,11 @@
 -r:"C:/Program Files/Unity/Hub/Editor/2021.3.2f1/Editor/Data/UnityReferenceAssemblies/unity-4.8-api/System.Xml.dll"
 -r:"C:/Program Files/Unity/Hub/Editor/2021.3.2f1/Editor/Data/UnityReferenceAssemblies/unity-4.8-api/System.Xml.Linq.dll"
 -r:"C:/Program Files/Unity/Hub/Editor/2021.3.2f1/Editor/Data/UnityReferenceAssemblies/unity-4.8-api/System.Xml.Serialization.dll"
+<<<<<<< HEAD
 -r:"C:/Users/nikki/Desktop/school/BOP4/space-AtomA-cake/game/unity/BO4/Library/PackageCache/com.unity.ext.nunit@1.0.6/net35/unity-custom/nunit.framework.dll"
+=======
+-r:"C:/Users/Boi/Documents/Ma/4/spaceOpdrachtgoedefolder/space-AtomA-cake/game/unity/BO4/Library/PackageCache/com.unity.ext.nunit@1.0.6/net35/unity-custom/nunit.framework.dll"
+>>>>>>> cd0bab1a47c02b6c5f34efb76e9bcd33735a0661
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.TestRunner.ref.dll"
 "Library/PackageCache/com.unity.test-framework@1.1.31/UnityEditor.TestRunner/Api/Analytics/AnalyticsReporter.cs"
 "Library/PackageCache/com.unity.test-framework@1.1.31/UnityEditor.TestRunner/Api/Analytics/AnalyticsTestCallback.cs"
