@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class kijknaar : MonoBehaviour
 {
     [SerializeField] private GameObject bekijkt;
+    [SerializeField] private GameObject vanuit;
     [SerializeField] private Vector3 rotatie;
     [SerializeField] private Vector3 _rotation;
     [SerializeField] private GameObject kijkobject = null;
@@ -23,8 +24,8 @@ public class kijknaar : MonoBehaviour
         
         float x = bekijkt.transform.position.x - transform.position.x;
         float y = bekijkt.transform.position.y - transform.position.y;
-        float ab = transform.position.x - x;
-        float bc = transform.position.y - y;
+        float ab = vanuit.transform.position.x - x;
+        float bc = vanuit.transform.position.y - y;
         float a = bc / ab;
        
         print("hoi" + a);

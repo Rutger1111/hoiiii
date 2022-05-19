@@ -6,6 +6,7 @@ public class deSanityBar : MonoBehaviour
 {
     public Slider slidei;
     public int health = 100;
+    public GameObject companian;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,6 +16,7 @@ public class deSanityBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        slidei.value = health;
+        
+        slidei.value = companian.GetComponent<enemyHealth>().health;;
     }
 }
