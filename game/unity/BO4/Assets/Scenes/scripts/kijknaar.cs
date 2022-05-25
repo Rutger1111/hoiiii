@@ -11,7 +11,7 @@ public class kijknaar : MonoBehaviour
     [SerializeField] private Vector3 _rotation;
     [SerializeField] private GameObject kijkobject = null;
     [SerializeField] private Text textie;
-    [SerializeField] private float angle = 0f;
+    public float angle = 0f;
     // Start is called before the first frame update
     void Start()
     {

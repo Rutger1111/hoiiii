@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class enemyPath : MonoBehaviour
 {
-    [SerializeField] private List<Vector3> points;
-    [SerializeField] private int lookAT = -1;
+    public static List<Vector3> points;
+    public int lookAT = 0;
     [SerializeField] private Vector3 distance;
     [SerializeField] private float rotationX;
     [SerializeField] private float rotationY;
     [SerializeField] private float rotationZ;
+    [SerializeField] private GameObject AngleObject;
     [SerializeField] private bool GO = true;
     [SerializeField] private Vector3 Voor;
     [SerializeField] private Vector3 Na;
@@ -54,6 +55,15 @@ public class enemyPath : MonoBehaviour
                 Voor = transform.position;
             }
         }
-        transform.position += distance * Time.deltaTime / 3;
+        float hoek = AngleObject.GetComponent<kijknaar>().angle;
+        transform.position += new Vector3(Mathf.Cos(hoek), Mathf.Sin(hoek), 0);
+        
+        //float sin = Mathf.Sin(hoek / 100);
+        //print(sin * 2);
+        //float tan = Mathf.Tan(hoek / 100);
+        //print("tan" + sin * 2 / tan);
+        // transform.position = new Vector3(sin * 2 / tan, sin * 2, 0);
+        //transform.position += distance * Time.deltaTime / 3;
+        //transform.position += new Vector3(sin * 2 / tan * 200, sin * 2 * 200, 0);
     }
 }

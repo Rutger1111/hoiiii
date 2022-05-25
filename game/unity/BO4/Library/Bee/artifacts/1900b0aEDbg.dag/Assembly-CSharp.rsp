@@ -384,6 +384,7 @@
 "Assets/Scenes/scripts/uiFollow.cs"
 "Assets/Scenes/scripts/volgMUis.cs"
 "Assets/Scenes/scripts/zwartwoorden.cs"
+"Assets/specialeKijk.cs"
 -langversion:9.0
 
 /deterministic
