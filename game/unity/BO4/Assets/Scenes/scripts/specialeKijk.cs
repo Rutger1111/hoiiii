@@ -23,7 +23,7 @@ public class specialeKijk : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        enemy = enemyPath.points[enemyPath.look]
+        //enemy = enemyPath.points[enemyPath.lookAT];
         float x = bekijkt.transform.position.x - transform.position.x;
         float y = bekijkt.transform.position.y - transform.position.y;
         float ab = vanuit.transform.position.x - x;

@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class enemyPath : MonoBehaviour
 {
-    public static List<Vector3> points;
-    public int lookAT = 0;
+    public List<Vector3> points;
+    public static int lookAT = 0;
     [SerializeField] private Vector3 distance;
     [SerializeField] private float rotationX;
     [SerializeField] private float rotationY;
