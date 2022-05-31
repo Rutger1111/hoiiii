@@ -381,6 +381,7 @@
 "Assets/Scenes/scripts/kijknaar.cs"
 "Assets/Scenes/scripts/kijnaardeMUis.cs"
 "Assets/Scenes/scripts/light.cs"
+"Assets/Scenes/scripts/playerdamgen.cs"
 "Assets/Scenes/scripts/shoot.cs"
 "Assets/Scenes/scripts/SoundmusicManager.cs"
 "Assets/Scenes/scripts/specialeKijk.cs"

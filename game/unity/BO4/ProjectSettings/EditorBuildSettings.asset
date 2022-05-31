@@ -8,4 +8,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/scenes/Atoma.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Nikki/Scenes/MainMenu.unity
+    guid: 976dbae248240894db95d80e276c2afd
+  - enabled: 1
+    path: Assets/Nikki/Scenes/StartScreen.unity
+    guid: e00f436a95d72264bb4a1345cefe686a
   m_configObjects: {}
