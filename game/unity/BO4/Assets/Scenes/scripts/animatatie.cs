@@ -26,7 +26,7 @@ public class animatatie : MonoBehaviour
         if (Input.GetKey(KeyCode.A))
         {
             //spritie.sprite = sprite1;
-            spritie.sprite = spritesAnimatieLoopL[welke];
+            spritie.sprite = sprite1;
         }
 
         if (Input.GetKey(KeyCode.D))

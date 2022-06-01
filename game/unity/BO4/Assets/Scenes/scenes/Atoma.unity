@@ -535,6 +535,7 @@ GameObject:
   - component: {fileID: 446968635}
   - component: {fileID: 446968640}
   - component: {fileID: 446968642}
+  - component: {fileID: 446968643}
   - component: {fileID: 446968641}
   m_Layer: 0
   m_Name: Square (1)
@@ -685,6 +686,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 0.2}
   m_Center: {x: 0.0000015497208, y: 0, z: 0}
+--- !u!114 &446968643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 446968633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b3c0db74db6987499833b13e0425f6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hart1: {fileID: 1999207801}
+  hart2: {fileID: 590163797}
+  hart3: {fileID: 368381347}
+  raaktPlayer: 0
 --- !u!1 &520879938
 GameObject:
   m_ObjectHideFlags: 0
@@ -1927,7 +1944,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.3999939, y: -0.5200043}
+  m_AnchoredPosition: {x: 0.4000244, y: -0.519989}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1621991469
@@ -2925,11 +2942,15 @@ PrefabInstance:
       objectReference: {fileID: 172931886}
     - target: {fileID: 2846818781930650073, guid: 961f0a05315ce0a4081fc905979ada1a, type: 3}
       propertyPath: m_LocalScale.y
-      value: 3.1939
+      value: 0.6914794
+      objectReference: {fileID: 0}
+    - target: {fileID: 2846818781930650073, guid: 961f0a05315ce0a4081fc905979ada1a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 2846818781930650073, guid: 961f0a05315ce0a4081fc905979ada1a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.6301
+      value: 1.76
       objectReference: {fileID: 0}
     - target: {fileID: 2846818781972471758, guid: 961f0a05315ce0a4081fc905979ada1a, type: 3}
       propertyPath: textie
