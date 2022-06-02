@@ -368,6 +368,7 @@
 "Assets/bois scenes/Items.cs"
 "Assets/bois scenes/Player.cs"
 "Assets/Nikki/Code/DoorScript.cs"
+"Assets/Nikki/Code/MenuManager.cs"
 "Assets/Scenes/scripts/AiWalk.cs"
 "Assets/Scenes/scripts/animatatie.cs"
 "Assets/Scenes/scripts/corrigeer.cs"
