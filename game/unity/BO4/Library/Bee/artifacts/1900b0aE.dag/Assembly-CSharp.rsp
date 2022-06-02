@@ -364,6 +364,7 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEditor.UI.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
 "Assets/bois scenes/camera.cs"
+"Assets/bois scenes/guard.cs"
 "Assets/bois scenes/Item.cs"
 "Assets/bois scenes/Player.cs"
 "Assets/bois scenes/sanity.cs"

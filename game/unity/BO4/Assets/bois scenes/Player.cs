@@ -25,7 +25,6 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("sanity " + GetComponent<sanity>().sanityfloat);
         foreach (GameObject i in gameitems)
         {
             Vector3 distVector = i.transform.position - transform.position;
@@ -85,6 +84,11 @@ public class Player : MonoBehaviour
         if(collision.gameObject.name == "background")
         {
             float sf = GetComponent<sanity>().sanityfloat = 1f;
+            GetComponent<sanity>().sanitybar.value = sf;
+        }
+        if(collision.gameObject.name == "room0")
+        {
+            float sf = GetComponent<sanity>().sanityfloat = 0.2f;
             GetComponent<sanity>().sanitybar.value = sf;
         }
             
