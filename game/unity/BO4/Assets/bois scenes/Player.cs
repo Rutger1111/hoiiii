@@ -10,15 +10,12 @@ public class Player : MonoBehaviour
     public bool kanLopen = true;
     public GameObject opvolger;
     public List<GameObject> gameitems;
-    private bool pickup;
-    public GameObject hand;
-    public float deurBound1x;
-    public float deurBound1y;
-    public float deurBound1z;
-
-    public float deurBound2x;
-    public float deurBound2y;
-    public float deurBound2z;
+    public List<GameObject> holding;
+    public bool pickup;
+    public GameObject een;
+    public GameObject twee;
+    public GameObject drie;
+    public GameObject room2;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,52 +25,68 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        foreach(GameObject i in gameitems)
+        Debug.Log("sanity " + GetComponent<sanity>().sanityfloat);
+        foreach (GameObject i in gameitems)
         {
             Vector3 distVector = i.transform.position - transform.position;
             float distance = distVector.magnitude;
 
-            if(distance < 0.3f)
+            if (distance < 1.5f)
             {
                 if (Input.GetKey(KeyCode.Space) && pickup == false)
                 {
-                    i.transform.parent = hand.transform;
-                    i.transform.position = hand.transform.position;
+                    i.transform.parent = transform;
+                    i.transform.position = transform.position;
                     pickup = true;
                 }
                 if (Input.GetKeyDown(KeyCode.Q) && pickup == true)
                 {
-                    i.transform.parent = null;
-                    i.transform.position -= new Vector3(0, 1.3f);
+                    if (this.transform.childCount > 0)
+                    {
+                        this.transform.GetChild(0).parent = null;
+                    }
                     pickup = false;
                 }
             }
         }
-
         if (kanLopen == true)
         {
-            if (transform.position.x >= deurBound1x && transform.position.x <= deurBound2x)
-            {
-
-            }
             if (Input.GetKey(KeyCode.W) && transform.position.y < -3)
             {
                 transform.position += new Vector3(0, speed) * Time.deltaTime;
-                transform.localScale -= (new Vector3(speed / Scale1, speed / Scale2) * Time.deltaTime) /3;
+                transform.localScale -= (new Vector3(speed / 1.4f, speed / Scale2) * Time.deltaTime) / 3;
             }
-            if (Input.GetKey(KeyCode.A) && transform.position.x > -6.5)
+            if (Input.GetKey(KeyCode.A))
             {
-                transform.position -= new Vector3(speed, 0) * Time.deltaTime;   
+                transform.position -= new Vector3(speed, 0) * Time.deltaTime;
             }
             if (Input.GetKey(KeyCode.S) && transform.position.y > -5)
             {
                 transform.position -= new Vector3(0, speed) * Time.deltaTime;
-                transform.localScale += (new Vector3(speed / 1.4f, speed) * Time.deltaTime) /3;
+                transform.localScale += (new Vector3(speed / 1.4f, speed) * Time.deltaTime) / 3;
             }
-            if (Input.GetKey(KeyCode.D) && transform.position.x < 5)
+            if (Input.GetKey(KeyCode.D))
             {
                 transform.position += new Vector3(speed, 0) * Time.deltaTime;
-            }      
+            }
+            if(transform.position.x > 8 && transform.position.x < 12)
+            {
+                GetComponent<sanity>().sanityfloat = 0.4f;
+            }
         }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.name == "room2")
+        {
+            float sf = GetComponent<sanity>().sanityfloat = 0.4f;
+            GetComponent<sanity>().sanitybar.value = sf;
+        }
+        if(collision.gameObject.name == "background")
+        {
+            float sf = GetComponent<sanity>().sanityfloat = 1f;
+            GetComponent<sanity>().sanitybar.value = sf;
+        }
+            
     }
 }
