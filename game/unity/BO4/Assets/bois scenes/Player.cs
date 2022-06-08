@@ -15,16 +15,22 @@ public class Player : MonoBehaviour
     public GameObject een;
     public GameObject twee;
     public GameObject drie;
-    public GameObject room2;
+    public GameObject sroom;
+    public GameObject roomt2;
+    public GameObject room0;
+
     // Start is called before the first frame update
     void Start()
     {
-
-    }
+        sroom = GameObject.Find("backgroundd");
+        roomt2 = GameObject.Find("room2");
+        room0 = GameObject.Find("room0");
+}
 
     // Update is called once per frame
     void Update()
     {
+        Debug.DrawLine(new Vector3(7, 5, 0), new Vector3(7, -5, 0), Color.red);
         foreach (GameObject i in gameitems)
         {
             Vector3 distVector = i.transform.position - transform.position;
@@ -78,19 +84,24 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.name == "room2")
         {
-            float sf = GetComponent<sanity>().sanityfloat = 0.4f;
+            float sf = GetComponent<sanity>().sanityfloat = Random.Range(0.1f, 1f);
             GetComponent<sanity>().sanitybar.value = sf;
         }
-        if(collision.gameObject.name == "background")
+        if(collision.gameObject.name == "backgroundd")
         {
-            float sf = GetComponent<sanity>().sanityfloat = 1f;
-            GetComponent<sanity>().sanitybar.value = sf;
+
         }
         if(collision.gameObject.name == "room0")
         {
-            float sf = GetComponent<sanity>().sanityfloat = 0.2f;
+            Camera.main.transform.position = room0.transform.position + new Vector3(0, 0, -10);
+            float sf = GetComponent<sanity>().sanityfloat = Random.Range(0.1f, 1f);
             GetComponent<sanity>().sanitybar.value = sf;
         }
-            
+        if(collision.gameObject.name == "door")
+        {
+            Debug.Log("door");
+            transform.position = roomt2.transform.position - new Vector3(0, 3);
+            Camera.main.transform.position = roomt2.transform.position + new Vector3(0, 0, -10);
+        }
     }
 }

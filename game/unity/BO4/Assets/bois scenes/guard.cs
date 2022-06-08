@@ -4,20 +4,27 @@ using UnityEngine;
 
 public class guard : MonoBehaviour
 {
-    SpriteRenderer spriteRenderer;
-    public Sprite lowSanity;
-    float sf;
-
+    public SpriteRenderer spriteRenderer;
+    public Sprite lowsanity;
+    public Sprite highsanity;
+    private GameObject player;
     // Start is called before the first frame update
     void Start()
     {
-        spriteRenderer = this.GetComponent<SpriteRenderer>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        player = GameObject.Find("PLAYER");
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (GetComponent<sanity>().sanityfloat < 0.4f)
-            spriteRenderer.sprite = lowSanity;
+        if (player.GetComponent<sanity>().sanityfloat < 0.4f)        
+            ChangeSprite(lowsanity);
+        else
+            ChangeSprite(highsanity);
+    }
+    void ChangeSprite(Sprite newSprite)
+    {
+        spriteRenderer.sprite = newSprite;
     }
 }
