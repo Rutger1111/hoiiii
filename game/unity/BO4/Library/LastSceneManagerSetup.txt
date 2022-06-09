@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/bois scenes/New Scene.unity
+- path: Assets/Scenes/scenes/Atoma.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class animatatie : MonoBehaviour
 {
+    [SerializeField] private Animator animator;
     [SerializeField] private List<Sprite> spritesAnimatieLoopR;
     [SerializeField] private List<Sprite> spritesAnimatieLoopL;
     [SerializeField] private List<Sprite> spritesAnimatieLoopU;
@@ -26,16 +27,15 @@ public class animatatie : MonoBehaviour
         if (Input.GetKey(KeyCode.A))
         {
             //spritie.sprite = sprite1;
-            spritie.sprite = sprite1;
+            spritie.flipX = false;
+            animator.Play("Walk");
         }
 
         if (Input.GetKey(KeyCode.D))
         {
-            spritie.sprite = sprite3;
-        }
-        if (!Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.A))
-        {
-            spritie.sprite = sprite2;
+            //spritie.sprite = sprite3;
+            spritie.flipX = true;
+            animator.Play("Walk");
         }
     }
 }
