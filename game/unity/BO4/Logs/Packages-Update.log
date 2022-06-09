@@ -65,7 +65,11 @@ The following packages were updated:
   com.unity.test-framework from version 1.1.29 to 1.1.31
   com.unity.timeline from version 1.4.8 to 1.6.4
 
+<<<<<<< HEAD
 === Wed Jun  1 10:06:17 2022
+=======
+=== Wed Jun  1 13:02:03 2022
+>>>>>>> boibranch2
 
 Packages were changed.
 Update Mode: updateDependencies

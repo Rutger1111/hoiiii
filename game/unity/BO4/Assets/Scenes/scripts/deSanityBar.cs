@@ -17,6 +17,6 @@ public class deSanityBar : MonoBehaviour
     void Update()
     {
         
-        slidei.value = companian.GetComponent<enemyHealth>().health;;
+        slidei.value = companian.GetComponent<enemyHealth>().health;
     }
 }
