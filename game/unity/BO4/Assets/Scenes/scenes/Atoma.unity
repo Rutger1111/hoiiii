@@ -361,6 +361,26 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 5.1, y: 7.54, z: 0.2}
   m_Center: {x: -0.000000014901161, y: 0, z: 0}
+--- !u!95 &344251866
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 344251854}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 959f8b2f870c1b54ca0252f0509bb130, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &368381347
 GameObject:
   m_ObjectHideFlags: 0
@@ -2917,6 +2937,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 875404644456695061, guid: 961f0a05315ce0a4081fc905979ada1a, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 344251866}
     - target: {fileID: 875404644456695061, guid: 961f0a05315ce0a4081fc905979ada1a, type: 3}
       propertyPath: spritesAnimatieLoopD.Array.size
       value: 5

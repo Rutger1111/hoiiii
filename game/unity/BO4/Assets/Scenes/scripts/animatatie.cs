@@ -27,15 +27,29 @@ public class animatatie : MonoBehaviour
         if (Input.GetKey(KeyCode.A))
         {
             //spritie.sprite = sprite1;
+            animator.enabled = true;
             spritie.flipX = false;
-            animator.Play("Walk");
+            if (! animator.GetCurrentAnimatorStateInfo(0).IsName("Walk"))
+            {
+                animator.Play("Walk");
+            }
         }
 
         if (Input.GetKey(KeyCode.D))
         {
             //spritie.sprite = sprite3;
+            animator.enabled = true;
             spritie.flipX = true;
-            animator.Play("Walk");
+            if (! animator.GetCurrentAnimatorStateInfo(0).IsName("Walk"))
+            {
+                animator.Play("Walk");
+            }
         }
+        if(! Input.GetKey(KeyCode.D) && ! Input.GetKey(KeyCode.A))
+        {
+            animator.runtimeAnimatorController.animationClips.SetValue(0, 2);
+            animator.enabled = false;
+        }
+
     }
 }
