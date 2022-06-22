@@ -20,7 +20,7 @@ public class enemyPath : MonoBehaviour
     {
         Voor = transform.position;
         //transform.LookAt(points[lookAT]);
-        distance = points[lookAT] - transform.position;
+       // distance = points[lookAT] - transform.position;
         rotationX = transform.rotation.x;
         rotationY = transform.rotation.y;
         rotationZ = transform.rotation.z;

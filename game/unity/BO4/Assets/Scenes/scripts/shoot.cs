@@ -4,67 +4,37 @@ using UnityEngine;
 
 public class shoot : MonoBehaviour
 {
-    /*
-    Ray ray;
+    public float bulletSpeed = 10;
+    public GameObject bulletPrefab;
+    public Transform firepoint;
+    public Rigidbody2D rb;
+    public GameObject hoi;
+    float newtime;
     // Start is called before the first frame update
     void Start()
+    {
+
+    }
+
+    // Update is called once per frame
+
+    void Update()
     {
         
-    }
-
-    private void Update()
-    {
-        if (Physics.Raycast(transform.position, transform.forward, 10))
+        if(Input.GetKeyDown(KeyCode.Mouse0) && transform.parent.GetComponentInParent<Player>().shoot == true)
         {
-
+            Shoot();
         }
     }
-    */
-    Ray ray;
-    RaycastHit rayhit;
-    public GameObject hoi;
-    // Start is called before the first frame update
-    void Start()
+    void Shoot()
     {
-
-    }
-
-    // Update is called once per frame
-
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        GameObject bullet = Instantiate(bulletPrefab, firepoint.position, firepoint.rotation);
+        Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+        rb.AddForce(firepoint.up * bulletSpeed, ForceMode2D.Impulse);
+        if(newtime > Time.time)
         {
-            Debug.DrawRay(transform.position, -transform.up);
-            Ray ray = new Ray(transform.position, transform.up * 70);
-            if (Physics.Raycast(ray, out rayhit))
-            {
-                print("raycastprintje");
-                if (rayhit.transform.gameObject.tag == "enemy")
-                {
-                    print("raycastprintjeraywerkt");
-                    rayhit.transform.gameObject.GetComponent<enemyHealth>().health -= 10;
-                    if (rayhit.transform.gameObject.GetComponent<enemyHealth>().health <= 0)
-                    {
-                        Destroy(rayhit.collider.GetComponent<BoxCollider>());
-                        Destroy(rayhit.transform.gameObject);
-                    }
-                }
-            }
+            newtime = Time.time;
+            Destroy(bullet);
         }
     }
-    /*
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown)
-        {
-            hallo(time);
-        }
-    }
-    IEnumerator hallo(time)
-    {
-        WaitForSeconds(time)
-    }
-    */
 }

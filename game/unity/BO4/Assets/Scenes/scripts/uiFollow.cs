@@ -5,7 +5,8 @@ using UnityEngine;
 public class uiFollow : MonoBehaviour
 {
     [SerializeField] private Camera mCamera;
-    [SerializeField] private GameObject enemy; 
+    [SerializeField] private GameObject enemy;
+    bool ALIVE = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,7 +16,7 @@ public class uiFollow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        transform.position = mCamera.WorldToScreenPoint(enemy.transform.position);
+        if (enemy)
+            transform.position = mCamera.WorldToScreenPoint(enemy.transform.position);
     }
 }

@@ -28,13 +28,13 @@ public class kijknaar : MonoBehaviour
         float bc = vanuit.transform.position.y - y;
         float a = bc / ab;
        
-        print("hoi" + a);
+        //print("hoi" + a);
         
-        print(ab);
-        print(bc);
+        //print(ab);
+        //print(bc);
         angle = Mathf.Atan2(bc,ab)*Mathf.Rad2Deg;
         
-        print("hoi 1 4"+ a * Mathf.PI);
+        //print("hoi 1 4"+ a * Mathf.PI);
         float aaaa = angle;
         textie.text = ("" + aaaa);
         /*

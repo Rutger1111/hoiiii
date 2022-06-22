@@ -22,7 +22,9 @@ public class AiWalk : MonoBehaviour
     public float maxFluxy = -0.1f;
     public float maxFluxz = -0.1f;
     public float speed = 1;
-    public int nodig;
+    public int nodig = 0;
+    bool ALIVE = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,19 +35,17 @@ public class AiWalk : MonoBehaviour
     void Update()
     {
         //transform.LookAt(new Vector3(0, 0, 0));
-
-
-
-        //transform.LookAt(new Vector3(10,10,10));
-        onthoud = transform.eulerAngles;
-        if (transform.position.x > minx && transform.position.y > miny && transform.position.z > minz && transform.position.x < maxx && transform.position.y < maxy && transform.position.z < maxz)
+        if(ENemy)
         {
-            ENemy.transform.eulerAngles = new Vector3(0, 0, 0);
-            Verander();
+            //transform.LookAt(new Vector3(10,10,10));
+            onthoud = transform.eulerAngles;
+            if (transform.position.x > minx && transform.position.y > miny && transform.position.z > minz && transform.position.x < maxx && transform.position.y < maxy && transform.position.z < maxz)
+            {
+                ENemy.transform.eulerAngles = new Vector3(0, 0, 0);
+                Verander();
+            }
+            transport();
         }
-        transport();
-
-
     }
     void Verander()
     {
@@ -54,12 +54,16 @@ public class AiWalk : MonoBehaviour
         minx += x[nodig];
         miny += y[nodig];
         minz += z[nodig];
-        maxx += x[nodig];
+        maxx += x[nodig];  //errors maak dat als je bij de laatste nodig is dat hij terug gaat naar de eerste nodig gaat
         maxy += y[nodig];
         maxz += z[nodig];
-        Debug.Log(minx + miny + minz);
+        //Debug.Log(minx + miny + minz);
      
-        nodig++;
+        if(nodig < x.Count - 1)
+        {
+            nodig++;
+        }
+        
         kijknaar();
     }
     void transport()

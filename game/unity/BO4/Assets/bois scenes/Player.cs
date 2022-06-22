@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public float speed;
+    [SerializeField] private float speed;
     public float Scale1 = 4f;
     public float Scale2 = 1f;
     public bool kanLopen = true;
@@ -18,6 +18,9 @@ public class Player : MonoBehaviour
     public GameObject sroom;
     public GameObject roomt2;
     public GameObject room0;
+    public GameObject hand;
+    public bool shoot;
+    bool longroom = false;
 
     // Start is called before the first frame update
     void Start()
@@ -25,23 +28,28 @@ public class Player : MonoBehaviour
         sroom = GameObject.Find("backgroundd");
         roomt2 = GameObject.Find("room2");
         room0 = GameObject.Find("room0");
-}
+        
+    }
 
     // Update is called once per frame
     void Update()
     {
+        if(longroom == true)
+            Camera.main.transform.position = transform.position + new Vector3(0, 0, -10);
+
         Debug.DrawLine(new Vector3(7, 5, 0), new Vector3(7, -5, 0), Color.red);
         foreach (GameObject i in gameitems)
         {
             Vector3 distVector = i.transform.position - transform.position;
             float distance = distVector.magnitude;
 
-            if (distance < 1.5f)
+            if (distance < 1.5f) //in functions
             {
                 if (Input.GetKey(KeyCode.Space) && pickup == false)
                 {
-                    i.transform.parent = transform;
-                    i.transform.position = transform.position;
+                    shoot = true;
+                    i.transform.parent = hand.transform;
+                    i.transform.position = hand.transform.position;
                     pickup = true;
                 }
                 if (Input.GetKeyDown(KeyCode.Q) && pickup == true)
@@ -51,24 +59,25 @@ public class Player : MonoBehaviour
                         this.transform.GetChild(0).parent = null;
                     }
                     pickup = false;
+                    shoot = false;
                 }
             }
         }
         if (kanLopen == true)
         {
-            if (Input.GetKey(KeyCode.W) && transform.position.y < -3)
+            if (Input.GetKey(KeyCode.W) && transform.position.y < -1)
             {
                 transform.position += new Vector3(0, speed) * Time.deltaTime;
-                transform.localScale -= (new Vector3(speed / 1.4f, speed / Scale2) * Time.deltaTime) / 3;
+                //transform.localScale -= (new Vector3(speed / 1.4f, speed / Scale2) * Time.deltaTime) / 3;
             }
             if (Input.GetKey(KeyCode.A))
             {
                 transform.position -= new Vector3(speed, 0) * Time.deltaTime;
+
             }
-            if (Input.GetKey(KeyCode.S) && transform.position.y > -5)
+            if (Input.GetKey(KeyCode.S) && transform.position.y > -1)
             {
                 transform.position -= new Vector3(0, speed) * Time.deltaTime;
-                transform.localScale += (new Vector3(speed / 1.4f, speed) * Time.deltaTime) / 3;
             }
             if (Input.GetKey(KeyCode.D))
             {
@@ -89,7 +98,7 @@ public class Player : MonoBehaviour
         }
         if(collision.gameObject.name == "backgroundd")
         {
-
+            
         }
         if(collision.gameObject.name == "room0")
         {
@@ -99,8 +108,12 @@ public class Player : MonoBehaviour
         }
         if(collision.gameObject.name == "door")
         {
-            Debug.Log("door");
-            transform.position = roomt2.transform.position - new Vector3(0, 3);
+            transform.position = roomt2.transform.position;
+            longroom = true;
+        }
+        if (collision.gameObject.name == "door(1)")
+        {
+            transform.position = sroom.transform.position - new Vector3(0, 3);
             Camera.main.transform.position = roomt2.transform.position + new Vector3(0, 0, -10);
         }
     }

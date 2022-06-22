@@ -16,7 +16,14 @@ public class deSanityBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(companian)
+        {
+            slidei.value = companian.GetComponent<enemyHealth>().health;
+            if (slidei.value == 0)
+                Destroy(slidei);
+        }
+        if(!companian)
+            Destroy(gameObject);
         
-        slidei.value = companian.GetComponent<enemyHealth>().health;
     }
 }

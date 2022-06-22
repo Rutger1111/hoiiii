@@ -1,5 +1,1 @@
-<<<<<<< HEAD
-C:\Users\nikki\OneDrive\Desktop\School\Bo\space-AtomA-cake\game\unity\BO4
-=======
-C:\Users\Boi\Documents\Ma\4\BO4\space-AtomA-cake\game\unity\BO4
->>>>>>> boibranch2
+C:\Users\Boi\Documents\Ma\4\backup bo4\BO4\space-AtomA-cake\game\unity\BO4
