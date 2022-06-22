@@ -17,17 +17,20 @@ public class Player : MonoBehaviour
     public GameObject drie;
     public GameObject sroom;
     public GameObject roomt2;
-    public GameObject room0;
+    public GameObject hallw;
     public GameObject hand;
     public bool shoot;
     bool longroom = false;
+    public SpriteRenderer spriteRenderer;
 
     // Start is called before the first frame update
     void Start()
     {
         sroom = GameObject.Find("backgroundd");
         roomt2 = GameObject.Find("room2");
-        room0 = GameObject.Find("room0");
+        hallw = GameObject.Find("room0");
+        float sf = GetComponent<sanity>().sanityfloat = 1;
+        GetComponent<sanity>().sanitybar.value = sf; 
         
     }
 
@@ -35,9 +38,10 @@ public class Player : MonoBehaviour
     void Update()
     {
         if(longroom == true)
-            Camera.main.transform.position = transform.position + new Vector3(0, 0, -10);
-
-        Debug.DrawLine(new Vector3(7, 5, 0), new Vector3(7, -5, 0), Color.red);
+        {
+            Camera.main.transform.position = transform.position + new Vector3(0, 1.2f, -10);
+        }
+            
         foreach (GameObject i in gameitems)
         {
             Vector3 distVector = i.transform.position - transform.position;
@@ -102,19 +106,28 @@ public class Player : MonoBehaviour
         }
         if(collision.gameObject.name == "room0")
         {
-            Camera.main.transform.position = room0.transform.position + new Vector3(0, 0, -10);
+            longroom = true;
+            Camera.main.transform.position = hallw.transform.position + new Vector3(0, 0, -10);
             float sf = GetComponent<sanity>().sanityfloat = Random.Range(0.1f, 1f);
             GetComponent<sanity>().sanitybar.value = sf;
         }
         if(collision.gameObject.name == "door")
         {
-            transform.position = roomt2.transform.position;
+            transform.position = new Vector3(hallw.transform.position.x - 13, -1.2f, hallw.transform.position.z);
             longroom = true;
         }
         if (collision.gameObject.name == "door(1)")
         {
-            transform.position = sroom.transform.position - new Vector3(0, 3);
+            transform.position = new Vector3(sroom.transform.position.x, 2.1f, sroom.transform.position.z);
             Camera.main.transform.position = roomt2.transform.position + new Vector3(0, 0, -10);
         }
+        if(collision.gameObject.name == "door(2)")
+        {
+            transform.position = new Vector3(roomt2.transform.position.x - 13, -1.2f, roomt2.transform.position.z);
+        }
+    }
+    void ChangeSprite(Sprite sprite)
+    {
+        spriteRenderer.sprite = sprite;
     }
 }

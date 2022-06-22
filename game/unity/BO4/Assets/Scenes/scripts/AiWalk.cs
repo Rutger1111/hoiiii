@@ -35,7 +35,7 @@ public class AiWalk : MonoBehaviour
     void Update()
     {
         //transform.LookAt(new Vector3(0, 0, 0));
-        if(ENemy)
+        if(ENemy && nodig < x.Count -1)
         {
             //transform.LookAt(new Vector3(10,10,10));
             onthoud = transform.eulerAngles;

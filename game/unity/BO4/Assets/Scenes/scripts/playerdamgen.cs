@@ -62,21 +62,17 @@ public class playerdamgen : MonoBehaviour
 
         
     }
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.collider.gameObject.name == "Player")
+        if (collision.gameObject.name == "Player")
         {
             raaktPlayer = true;
             StartCoroutine(ietsweg(1));
         }
-    }
-    
-    private void OnCollisionExit(Collision collision)
-    {
-        if (collision.collider.gameObject.name == "Player")
+        if (collision.gameObject.name == "Player")
         {
             raaktPlayer = false;
-           
+
         }
     }
 }
