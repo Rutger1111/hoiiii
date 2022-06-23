@@ -19,6 +19,8 @@ public class Player : MonoBehaviour
     public bool kanLopen = true;
     public bool shoot;
     public bool pickup;
+    bool hallbool = false;
+    bool muur = false;
 
     public GameObject sroom;
     public GameObject roomt2;
@@ -41,7 +43,7 @@ public class Player : MonoBehaviour
         hallw = GameObject.Find("room0");
         keyroom = GameObject.Find("keyroom");
         float sf = GetComponent<sanity>().sanityfloat = 1;
-        GetComponent<sanity>().sanitybar.value = sf; 
+        GetComponent<sanity>().sanitybar.value = sf;
         
     }
 
@@ -80,7 +82,8 @@ public class Player : MonoBehaviour
         }
         if (kanLopen == true)
         {
-            if (Input.GetKey(KeyCode.W) && transform.position.y < 0)
+
+            if (Input.GetKey(KeyCode.W) && hallbool == false && transform.position.y < 0)
             {
                 transform.position += new Vector3(0, speed) * Time.deltaTime;
                 //transform.localScale -= (new Vector3(speed / 1.4f, speed / Scale2) * Time.deltaTime) / 3;
@@ -91,7 +94,7 @@ public class Player : MonoBehaviour
                 spriteRenderer.flipX = true;
 
             }
-            if (Input.GetKey(KeyCode.S) && transform.position.y > -1)
+            if (Input.GetKey(KeyCode.S) && transform.position.y > -1.3f)
             {
                 transform.position -= new Vector3(0, speed) * Time.deltaTime;
             }
@@ -124,26 +127,24 @@ public class Player : MonoBehaviour
         }
         if(collision.gameObject.name == "room0")
         {
+            hallbool = true;
             longroom = true;
-            Camera.main.transform.position = hallw.transform.position + new Vector3(0, 0, -10);
+            Camera.main.transform.position = hallw.transform.position + new Vector3(0, -2, -10);
             float sf = GetComponent<sanity>().sanityfloat = 0.5f;
             GetComponent<sanity>().sanitybar.value = sf;
         }
+        else
+            hallbool=false;
         if(collision.gameObject.name == "door")
         {
             transform.position = new Vector3(hallw.transform.position.x - 13, -1.2f, hallw.transform.position.z);
             longroom = true;
         }
-        if (collision.gameObject.name == "door1")
-        {
-            transform.position = new Vector3(sroom.transform.position.x, 0f, sroom.transform.position.z);
-            Camera.main.transform.position = sroom.transform.position - new Vector3(0, 2, 10);
-        }
         if(collision.gameObject.name == "door2")
         {
             transform.position = new Vector3(roomt2.transform.position.x - 13, -1.2f, roomt2.transform.position.z);
         }
-        if(collision.gameObject.name == "door3" && keycard == true)
+        if(collision.gameObject.name == "keydoorsprite" && keycard == true)
         {
             transform.position = room3.transform.position;
         }

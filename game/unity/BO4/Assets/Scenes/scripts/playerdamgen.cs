@@ -20,17 +20,10 @@ public class playerdamgen : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (player.GetComponent<sanity>().sanityfloat > 0.5f)
-            sane = true;
-        else
-            sane = false;
-        if(sane = false)
-        {
             if (hart3.active == false)
             {
                 StartCoroutine(ietsweg(1));
             }
-        }
     }
     IEnumerator ietsweg(float time)
     {
