@@ -7,28 +7,39 @@ public class Player : MonoBehaviour
     [SerializeField] private float speed;
     public float Scale1 = 4f;
     public float Scale2 = 1f;
-    public bool kanLopen = true;
-    public GameObject opvolger;
+    
     public List<GameObject> gameitems;
     public List<GameObject> holding;
+
+    public SpriteRenderer spriteRenderer;
+    public Sprite sprite;
+
+    bool keycard = false;
+    bool longroom = false;
+    public bool kanLopen = true;
+    public bool shoot;
     public bool pickup;
-    public GameObject een;
-    public GameObject twee;
-    public GameObject drie;
+
     public GameObject sroom;
     public GameObject roomt2;
     public GameObject hallw;
-    public GameObject hand;
-    public bool shoot;
-    bool longroom = false;
-    public SpriteRenderer spriteRenderer;
+    public GameObject room3;
+    private GameObject keycardobj;
+    public GameObject keyroom;
 
+    public GameObject hand;
+    public GameObject een;
+    public GameObject twee;
+    public GameObject drie;
+    public GameObject opvolger;
     // Start is called before the first frame update
     void Start()
     {
+        keycardobj = GameObject.Find("keycard");
         sroom = GameObject.Find("backgroundd");
         roomt2 = GameObject.Find("room2");
         hallw = GameObject.Find("room0");
+        keyroom = GameObject.Find("keyroom");
         float sf = GetComponent<sanity>().sanityfloat = 1;
         GetComponent<sanity>().sanitybar.value = sf; 
         
@@ -69,7 +80,7 @@ public class Player : MonoBehaviour
         }
         if (kanLopen == true)
         {
-            if (Input.GetKey(KeyCode.W) && transform.position.y < -1)
+            if (Input.GetKey(KeyCode.W) && transform.position.y < 0)
             {
                 transform.position += new Vector3(0, speed) * Time.deltaTime;
                 //transform.localScale -= (new Vector3(speed / 1.4f, speed / Scale2) * Time.deltaTime) / 3;
@@ -77,6 +88,7 @@ public class Player : MonoBehaviour
             if (Input.GetKey(KeyCode.A))
             {
                 transform.position -= new Vector3(speed, 0) * Time.deltaTime;
+                spriteRenderer.flipX = true;
 
             }
             if (Input.GetKey(KeyCode.S) && transform.position.y > -1)
@@ -86,6 +98,7 @@ public class Player : MonoBehaviour
             if (Input.GetKey(KeyCode.D))
             {
                 transform.position += new Vector3(speed, 0) * Time.deltaTime;
+                spriteRenderer.flipX = false;
             }
             if(transform.position.x > 8 && transform.position.x < 12)
             {
@@ -95,6 +108,11 @@ public class Player : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if(collision.gameObject.name == "CommandRoom")
+        {
+            longroom = false;
+            Camera.main.transform.position = collision.transform.position - new Vector3(0, 0, 10);
+        }
         if (collision.gameObject.name == "room2")
         {
             float sf = GetComponent<sanity>().sanityfloat = Random.Range(0.1f, 1f);
@@ -102,13 +120,13 @@ public class Player : MonoBehaviour
         }
         if(collision.gameObject.name == "backgroundd")
         {
-            
+            longroom = false;
         }
         if(collision.gameObject.name == "room0")
         {
             longroom = true;
             Camera.main.transform.position = hallw.transform.position + new Vector3(0, 0, -10);
-            float sf = GetComponent<sanity>().sanityfloat = Random.Range(0.1f, 1f);
+            float sf = GetComponent<sanity>().sanityfloat = 0.5f;
             GetComponent<sanity>().sanitybar.value = sf;
         }
         if(collision.gameObject.name == "door")
@@ -116,15 +134,37 @@ public class Player : MonoBehaviour
             transform.position = new Vector3(hallw.transform.position.x - 13, -1.2f, hallw.transform.position.z);
             longroom = true;
         }
-        if (collision.gameObject.name == "door(1)")
+        if (collision.gameObject.name == "door1")
         {
-            transform.position = new Vector3(sroom.transform.position.x, 2.1f, sroom.transform.position.z);
-            Camera.main.transform.position = roomt2.transform.position + new Vector3(0, 0, -10);
+            transform.position = new Vector3(sroom.transform.position.x, 0f, sroom.transform.position.z);
+            Camera.main.transform.position = sroom.transform.position - new Vector3(0, 2, 10);
         }
-        if(collision.gameObject.name == "door(2)")
+        if(collision.gameObject.name == "door2")
         {
             transform.position = new Vector3(roomt2.transform.position.x - 13, -1.2f, roomt2.transform.position.z);
         }
+        if(collision.gameObject.name == "door3" && keycard == true)
+        {
+            transform.position = room3.transform.position;
+        }
+        if(collision.gameObject.name == "door4")
+        {
+            longroom = false;
+            transform.position = keyroom.transform.position - new Vector3(0, 1, 0);
+            Camera.main.transform.position = keyroom.transform.position - new Vector3(0, 0, 10);
+        }
+        if(collision.gameObject.name == "door5")
+        {
+            transform.position = roomt2.transform.position - new Vector3(-8, 1, 0);
+            Camera.main.transform.position = transform.position - new Vector3(0, 0, 10);
+            longroom = true;
+        }
+        if(collision.gameObject.name == "keycard")
+        {
+            keycard = true;
+            Destroy(keycardobj);
+        }
+
     }
     void ChangeSprite(Sprite sprite)
     {

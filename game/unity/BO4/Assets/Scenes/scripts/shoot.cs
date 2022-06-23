@@ -31,10 +31,5 @@ public class shoot : MonoBehaviour
         GameObject bullet = Instantiate(bulletPrefab, firepoint.position, firepoint.rotation);
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         rb.AddForce(firepoint.up * bulletSpeed, ForceMode2D.Impulse);
-        if(newtime > Time.time)
-        {
-            newtime = Time.time;
-            Destroy(bullet);
-        }
     }
 }

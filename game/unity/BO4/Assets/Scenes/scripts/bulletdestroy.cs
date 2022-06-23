@@ -8,14 +8,13 @@ public class bulletdestroy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        time = Time.time;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(time > 10)
-            Destroy(gameObject);
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

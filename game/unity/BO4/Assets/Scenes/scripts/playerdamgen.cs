@@ -9,18 +9,27 @@ public class playerdamgen : MonoBehaviour
     public GameObject hart2;
     public GameObject hart3;
     public bool raaktPlayer;
+    bool sane = false;
+    public GameObject player;
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (hart3.active == false)
+        if (player.GetComponent<sanity>().sanityfloat > 0.5f)
+            sane = true;
+        else
+            sane = false;
+        if(sane = false)
         {
-            StartCoroutine(ietsweg(1));
+            if (hart3.active == false)
+            {
+                StartCoroutine(ietsweg(1));
+            }
         }
     }
     IEnumerator ietsweg(float time)

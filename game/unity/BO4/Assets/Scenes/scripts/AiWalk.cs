@@ -15,12 +15,6 @@ public class AiWalk : MonoBehaviour
     public List<float> x;
     public List<float> y;
     public List<float> z;
-    public float minFluxx = -0.1f;
-    public float minFluxy = -0.1f;
-    public float minFluxz = -0.1f;
-    public float maxFluxx = -0.1f;
-    public float maxFluxy = -0.1f;
-    public float maxFluxz = -0.1f;
     public float speed = 1;
     public int nodig = 0;
     bool ALIVE = true;
