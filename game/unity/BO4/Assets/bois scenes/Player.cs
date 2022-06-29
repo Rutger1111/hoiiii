@@ -113,9 +113,13 @@ public class Player : MonoBehaviour
                 GetComponent<sanity>().sanityfloat = 0.4f;
             }
         }
-        if (transform.position.x - endButton.transform.position.x <= 1 && transform.position.x - endButton.transform.position.x >= -1 && transform.position.y >= -1)
+        if (transform.position.x - endButton.transform.position.x <= 1 && transform.position.x - endButton.transform.position.x >= -1 && transform.position.y >= 15)
         {
-            SceneManager.LoadScene(0);
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                SceneManager.LoadScene(0);
+            }
+
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
