@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class normalrotation : MonoBehaviour
 {
+    public SpriteRenderer spriteRenderer;
     public GameObject player;
     // Start is called before the first frame update
     void Start()
@@ -14,9 +15,15 @@ public class normalrotation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(player.GetComponent<Player>().shoot == true)
+        
+        transform.localScale = new Vector3(0.150000006f, 0.150000006f, 1);
+        if (player.GetComponent<Player>().shoot == true)
         {
             transform.Rotate(0, 0, 0, Space.Self);
         }
+        if (Input.GetKey(KeyCode.A))
+            spriteRenderer.flipY = true;
+        if(Input.GetKey(KeyCode.D))
+            spriteRenderer.flipY = false;
     }
 }

@@ -11,18 +11,21 @@ ScriptsOnlyBuild:
     - deSanityBar
     - enemyHealth
     - enemyPath
+    - escapeisquit
     - kijknaar
     - kijnaardeMUis
-    - menuscript
     - normalrotation
     - playerdamgen
+    - rotatearm
     - sanity
+    - sanityrooms
     - shoot
     - shootEffect
     - shootSound
     - specialeKijk
     - uiFollow
     - volgMUis
+    - windowed
     - zwartwoorden
     Unity.2D.Animation.Editor.dll:
     - UnityEditor.U2D.Animation.BoneGizmo
@@ -60,7 +63,6 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.Image
     - UnityEngine.UI.Slider
     - UnityEngine.UI.Text
-    - UnityEngine.UI.VerticalLayoutGroup
   serializedClasses:
     Unity.TextMeshPro:
     - TMPro.FaceInfo_Legacy
@@ -78,10 +80,7 @@ ScriptsOnlyBuild:
     - TMPro.TMP_Style
     - TMPro.VertexGradient
     UnityEngine.CoreModule:
-    - UnityEngine.Events.ArgumentCache
     - UnityEngine.Events.PersistentCallGroup
-    - UnityEngine.Events.PersistentListenerMode
-    - UnityEngine.RectOffset
     UnityEngine.TextCoreFontEngineModule:
     - UnityEngine.TextCore.FaceInfo
     - UnityEngine.TextCore.Glyph
@@ -96,23 +95,57 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.Navigation
     - UnityEngine.UI.Slider/SliderEvent
     - UnityEngine.UI.SpriteState
-  methodsToPreserve:
-  - assembly: Assembly-CSharp
-    fullTypeName: menuscript
-    methodName: maintoGame
-  - assembly: Assembly-CSharp
-    fullTypeName: menuscript
-    methodName: optionsBackButton
-  - assembly: Assembly-CSharp
-    fullTypeName: menuscript
-    methodName: maintoOptionsButton
-  - assembly: Assembly-CSharp
-    fullTypeName: menuscript
-    methodName: Quit
-  - assembly: Assembly-CSharp
-    fullTypeName: menuscript
-    methodName: starttoMainButton
+  methodsToPreserve: []
   sceneClasses:
+    Assets/Nikki/Scenes/StartScreen.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 1628}
+    - Class: 114
+      Script: {instanceID: 1992}
+    - Class: 114
+      Script: {instanceID: 2938}
+    - Class: 114
+      Script: {instanceID: 3120}
+    - Class: 114
+      Script: {instanceID: 3180}
+    - Class: 114
+      Script: {instanceID: 3396}
+    - Class: 114
+      Script: {instanceID: 3706}
+    - Class: 114
+      Script: {instanceID: 3848}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 196
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
+      Script: {instanceID: 0}
     Assets/Scenes/scenes/Atoma.unity:
     - Class: 1
       Script: {instanceID: 0}
@@ -165,116 +198,67 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1792}
     - Class: 114
-      Script: {instanceID: 1854}
+      Script: {instanceID: 1856}
     - Class: 114
-      Script: {instanceID: 1990}
+      Script: {instanceID: 1992}
     - Class: 114
-      Script: {instanceID: 2446}
+      Script: {instanceID: 2448}
     - Class: 114
-      Script: {instanceID: 2458}
+      Script: {instanceID: 2460}
     - Class: 114
-      Script: {instanceID: 2462}
+      Script: {instanceID: 2464}
     - Class: 114
-      Script: {instanceID: 2572}
+      Script: {instanceID: 2574}
     - Class: 114
-      Script: {instanceID: 2934}
+      Script: {instanceID: 2646}
     - Class: 114
-      Script: {instanceID: 2988}
+      Script: {instanceID: 2938}
     - Class: 114
-      Script: {instanceID: 2990}
+      Script: {instanceID: 2992}
     - Class: 114
-      Script: {instanceID: 3116}
+      Script: {instanceID: 2994}
     - Class: 114
-      Script: {instanceID: 3172}
-    - Class: 114
-      Script: {instanceID: 3392}
-    - Class: 114
-      Script: {instanceID: 3428}
-    - Class: 114
-      Script: {instanceID: 3702}
-    - Class: 114
-      Script: {instanceID: 3714}
-    - Class: 114
-      Script: {instanceID: 3914}
-    - Class: 114
-      Script: {instanceID: 3994}
-    - Class: 114
-      Script: {instanceID: 4042}
-    - Class: 114
-      Script: {instanceID: 4110}
-    - Class: 114
-      Script: {instanceID: 4280}
-    - Class: 114
-      Script: {instanceID: 4402}
-    - Class: 114
-      Script: {instanceID: 5394}
-    - Class: 114
-      Script: {instanceID: 5616}
-    - Class: 114
-      Script: {instanceID: 5808}
-    - Class: 114
-      Script: {instanceID: 5824}
-    - Class: 114
-      Script: {instanceID: 5942}
-    - Class: 114
-      Script: {instanceID: 28960}
-    - Class: 115
-      Script: {instanceID: 0}
-    - Class: 128
-      Script: {instanceID: 0}
-    - Class: 157
-      Script: {instanceID: 0}
-    - Class: 196
-      Script: {instanceID: 0}
-    - Class: 212
-      Script: {instanceID: 0}
-    - Class: 213
-      Script: {instanceID: 0}
-    - Class: 222
-      Script: {instanceID: 0}
-    - Class: 223
-      Script: {instanceID: 0}
-    - Class: 224
-      Script: {instanceID: 0}
-    Assets/Scenes/scenes/Menu/StartScreen.unity:
-    - Class: 1
-      Script: {instanceID: 0}
-    - Class: 4
-      Script: {instanceID: 0}
-    - Class: 20
-      Script: {instanceID: 0}
-    - Class: 21
-      Script: {instanceID: 0}
-    - Class: 28
-      Script: {instanceID: 0}
-    - Class: 48
-      Script: {instanceID: 0}
-    - Class: 81
-      Script: {instanceID: 0}
-    - Class: 104
-      Script: {instanceID: 0}
-    - Class: 114
-      Script: {instanceID: 1628}
-    - Class: 114
-      Script: {instanceID: 1854}
-    - Class: 114
-      Script: {instanceID: 1990}
-    - Class: 114
-      Script: {instanceID: 2934}
-    - Class: 114
-      Script: {instanceID: 3116}
+      Script: {instanceID: 3120}
     - Class: 114
       Script: {instanceID: 3176}
     - Class: 114
-      Script: {instanceID: 3392}
+      Script: {instanceID: 3396}
     - Class: 114
-      Script: {instanceID: 3692}
+      Script: {instanceID: 3432}
     - Class: 114
-      Script: {instanceID: 3702}
+      Script: {instanceID: 3706}
     - Class: 114
-      Script: {instanceID: 3840}
+      Script: {instanceID: 3718}
     - Class: 114
-      Script: {instanceID: 4298}
+      Script: {instanceID: 3776}
+    - Class: 114
+      Script: {instanceID: 3892}
+    - Class: 114
+      Script: {instanceID: 3924}
+    - Class: 114
+      Script: {instanceID: 4004}
+    - Class: 114
+      Script: {instanceID: 4052}
+    - Class: 114
+      Script: {instanceID: 4120}
+    - Class: 114
+      Script: {instanceID: 4290}
+    - Class: 114
+      Script: {instanceID: 4412}
+    - Class: 114
+      Script: {instanceID: 5406}
+    - Class: 114
+      Script: {instanceID: 5628}
+    - Class: 114
+      Script: {instanceID: 5820}
+    - Class: 114
+      Script: {instanceID: 5836}
+    - Class: 114
+      Script: {instanceID: 5954}
+    - Class: 114
+      Script: {instanceID: 407886}
+    - Class: 114
+      Script: {instanceID: 407894}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -282,6 +266,12 @@ ScriptsOnlyBuild:
     - Class: 157
       Script: {instanceID: 0}
     - Class: 196
+      Script: {instanceID: 0}
+    - Class: 198
+      Script: {instanceID: 0}
+    - Class: 199
+      Script: {instanceID: 0}
+    - Class: 212
       Script: {instanceID: 0}
     - Class: 213
       Script: {instanceID: 0}
@@ -376,6 +366,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: animatatie
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Items
   - hash:
       serializedVersion: 2
       Hash: 6bc76e17f0d5e93f3eea7f5a2fe227f3
@@ -474,6 +470,12 @@ ScriptsOnlyBuild:
     className: background
   - hash:
       serializedVersion: 2
+      Hash: 22ca396d411529967767f8e5cef9ff79
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: shootSound
+  - hash:
+      serializedVersion: 2
       Hash: c1d728126ff1918728036c59106d32b2
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -498,7 +500,7 @@ ScriptsOnlyBuild:
     className: CanvasScaler
   - hash:
       serializedVersion: 2
-      Hash: 8e5ba1ca45f0758ef27d6ba3a69e2ab4
+      Hash: 9aca813aa2f3ecb5a2a36e9c7138e5fd
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: AiWalk
@@ -642,6 +644,12 @@ ScriptsOnlyBuild:
     className: MarkerTrack
   - hash:
       serializedVersion: 2
+      Hash: 671ddb5f5e6fc11de2e80fc15a35824e
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: sanityrooms
+  - hash:
+      serializedVersion: 2
       Hash: 8e6ceabfd38a184413d69b7db56c89cc
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestTools
@@ -652,6 +660,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.2D.Animation.Runtime.dll
     namespaceName: UnityEngine.U2D.Animation
     className: Bone
+  - hash:
+      serializedVersion: 2
+      Hash: 03bdf2fe8bc926f3e22269deec27e3b0
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: changesprite
   - hash:
       serializedVersion: 2
       Hash: 69415240821be7986b27e72bf9609a30
@@ -672,7 +686,13 @@ ScriptsOnlyBuild:
     className: SpriteShapeController
   - hash:
       serializedVersion: 2
-      Hash: 83e769eee07fc231384c812eedbb8224
+      Hash: 3c1d94f7962ae979581d6da8b7c3c458
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: rotatearm
+  - hash:
+      serializedVersion: 2
+      Hash: 09d2c5f956b90b71b3be979da0dcd5f5
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: normalrotation
@@ -702,7 +722,7 @@ ScriptsOnlyBuild:
     className: ContentSizeFitter
   - hash:
       serializedVersion: 2
-      Hash: b385b4cd126641df2d99b96d36f74154
+      Hash: f91d11e6547828eb3af1780c022c9d59
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Player
@@ -844,6 +864,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.2D.SpriteShape.Runtime.dll
     namespaceName: 
     className: SpriteShapeGeometryCache
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Distanceholder
   - hash:
       serializedVersion: 2
       Hash: 3ee38dae950a2169533c65ccdabe70cc
@@ -1002,12 +1028,18 @@ ScriptsOnlyBuild:
     className: FabrikSolver2D
   - hash:
       serializedVersion: 2
-      Hash: 22ca396d411529967767f8e5cef9ff79
+      Hash: cc33b1c294d2c04b98e82d5f4e64e330
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: shootSound
+    className: windowed
+  - hash:
+      serializedVersion: 2
+      Hash: 5527fe44e32fe71fe79b6bc793e1b549
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: escapeisquit
   platform: 19
   scenePathNames:
   - Assets/Scenes/scenes/Atoma.unity
-  - Assets/Scenes/scenes/Menu/StartScreen.unity
+  - Assets/Nikki/Scenes/StartScreen.unity
   playerPath: C:/Users/info/OneDrive/Bureaublad/spacegameGit/spaceOpdracht/game/unity/BO4/builds/build1/BO4.exe

@@ -60,23 +60,25 @@ public class playerdamgen : MonoBehaviour
 
         yield return new WaitForSeconds(time);
 
-        
+
     }
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (collision.collider.gameObject.name == "Player")
+        if (raaktPlayer == false)
         {
-            raaktPlayer = true;
-            StartCoroutine(ietsweg(1));
+            if (other.gameObject.name == ("Player"))
+            {
+                raaktPlayer = true;
+                StartCoroutine(ietsweg(1));
+            }
         }
     }
-    
-    private void OnCollisionExit(Collision collision)
+    private void OnTriggerExit2D(Collider2D other)
     {
-        if (collision.collider.gameObject.name == "Player")
+        if (other.gameObject.name == ("Player"))
         {
             raaktPlayer = false;
-           
         }
+            
     }
 }
