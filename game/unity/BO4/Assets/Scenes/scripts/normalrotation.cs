@@ -15,7 +15,9 @@ public class normalrotation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(player.GetComponent<Player>().shoot == true)
+        
+        transform.localScale = new Vector3(0.150000006f, 0.150000006f, 1);
+        if (player.GetComponent<Player>().shoot == true)
         {
             transform.Rotate(0, 0, 0, Space.Self);
         }

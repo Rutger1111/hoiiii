@@ -9,21 +9,19 @@ public class playerdamgen : MonoBehaviour
     public GameObject hart2;
     public GameObject hart3;
     public bool raaktPlayer;
-    bool sane = false;
-    public GameObject player;
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-            if (hart3.active == false)
-            {
-                StartCoroutine(ietsweg(1));
-            }
+        if (hart3.active == false)
+        {
+            StartCoroutine(ietsweg(1));
+        }
     }
     IEnumerator ietsweg(float time)
     {
@@ -62,19 +60,25 @@ public class playerdamgen : MonoBehaviour
 
         yield return new WaitForSeconds(time);
 
-        
+
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (collision.gameObject.name == "Player")
+        if (raaktPlayer == false)
         {
-            raaktPlayer = true;
-            StartCoroutine(ietsweg(1));
+            if (other.gameObject.name == ("Player"))
+            {
+                raaktPlayer = true;
+                StartCoroutine(ietsweg(1));
+            }
         }
-        if (collision.gameObject.name == "Player")
+    }
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.name == ("Player"))
         {
             raaktPlayer = false;
-
         }
+            
     }
 }

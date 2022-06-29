@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -34,6 +35,8 @@ public class Player : MonoBehaviour
     public GameObject twee;
     public GameObject drie;
     public GameObject opvolger;
+
+    public GameObject endButton;
     // Start is called before the first frame update
     void Start()
     {
@@ -50,6 +53,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if(longroom == true)
         {
             Camera.main.transform.position = transform.position + new Vector3(0, 1.2f, -10);
@@ -67,6 +71,7 @@ public class Player : MonoBehaviour
                     shoot = true;
                     i.transform.parent = hand.transform;
                     i.transform.position = hand.transform.position;
+                    i.transform.eulerAngles = new Vector3(0,0,0);
                     pickup = true;
                 }
                 if (Input.GetKeyDown(KeyCode.Q) && pickup == true)
@@ -107,6 +112,10 @@ public class Player : MonoBehaviour
             {
                 GetComponent<sanity>().sanityfloat = 0.4f;
             }
+        }
+        if (transform.position.x - endButton.transform.position.x <= 1 && transform.position.x - endButton.transform.position.x >= -1 && transform.position.y >= -1)
+        {
+            SceneManager.LoadScene(0);
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
